@@ -2,7 +2,14 @@
 
 > A Chrome Extension for Developers
 
-## Build Steps
+## Install to chrome
+
+You can install this extension by google web store:
+
+https://chrome.google.com/webstore/detail/smartdeveloper/pofpjekhccfpopfalcdjlngdfklnlacf
+
+
+## Custom Build Steps
 
 ``` bash
 # install dependencies
@@ -14,12 +21,6 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-## Install to chrome
-
-You can install this extension by google web store:
-
-https://chrome.google.com/webstore/detail/smartdeveloper/pofpjekhccfpopfalcdjlngdfklnlacf
 
 ## Snapshot
 
