@@ -15,6 +15,12 @@ npm run dev
 npm run build
 ```
 
+## Install to chrome
+
+You can install this extension by google web store:
+
+https://chrome.google.com/webstore/detail/smartdeveloper/pofpjekhccfpopfalcdjlngdfklnlacf
+
 ## Snapshot
 
 ![image](https://raw.githubusercontent.com/edwinfound/smart-developer/master/snapshot/logo.jpg)
