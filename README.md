@@ -15,6 +15,13 @@ npm run dev
 npm run build
 ```
 
+## Snapshot
+
+![image](https://raw.githubusercontent.com/edwinfound/smart-developer/master/snapshot/logo.jpg)
+
+![image](https://raw.githubusercontent.com/edwinfound/smart-developer/master/snapshot/example.jpg)
+
+
 ## License
 
 MIT
