@@ -3,7 +3,7 @@
     <el-row :gutter="10">
       <el-col :span="24">
         <el-input
-          placeholder="输入需要生成二维码的文字"
+          placeholder="Please input content"
           type="textarea"
           size="mini"
           :rows="4"
@@ -13,7 +13,7 @@
     </el-row>
     <el-row :gutter="10" style="margin-top:10px;">
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" @click="doGenerate()">生成</el-button>
+        <el-button size="mini" style="width:100%;" @click="doGenerate()">Generate</el-button>
       </el-col>
     </el-row>
     <el-row :gutter="10" v-if="!!qrcode">

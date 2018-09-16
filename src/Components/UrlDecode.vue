@@ -6,7 +6,7 @@
           type="textarea"
           :rows="4"
           size="mini"
-          placeholder="输入需要urldecode的内容"
+          placeholder="Please input content"
           v-model="content">
         </el-input>
       </el-col>
@@ -24,7 +24,7 @@
     </el-row>
     <el-row :gutter="10" style="margin-top:10px;">
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" v-clipboard:copy="result" v-clipboard:success="onPasswordCopy">复制</el-button>
+        <el-button size="mini" style="width:100%;" v-clipboard:copy="result" v-clipboard:success="onPasswordCopy">Copy</el-button>
       </el-col>
     </el-row>
   </div>
@@ -50,7 +50,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: '复制成功',
+          message: 'Copy Success',
           type: 'success',
           showClose: true,
         })

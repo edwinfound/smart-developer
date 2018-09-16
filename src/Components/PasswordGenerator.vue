@@ -2,20 +2,20 @@
   <div>
     <el-row :gutter="10">
       <el-col :span="4">
-        <el-checkbox v-model="upperCharEnable">字母A-Z</el-checkbox>
+        <el-checkbox v-model="upperCharEnable">A-Z</el-checkbox>
       </el-col>
       <el-col :span="4">
-        <el-checkbox v-model="lowerCharEnable">字母a-z</el-checkbox>
+        <el-checkbox v-model="lowerCharEnable">a-z</el-checkbox>
       </el-col>
       <el-col :span="4">
-        <el-checkbox v-model="numberEnable">数字0-9</el-checkbox>
+        <el-checkbox v-model="numberEnable">0-9</el-checkbox>
       </el-col>
       <el-col :span="4">
-        <el-checkbox v-model="signEnable" size="mini">特殊字符</el-checkbox>
+        <el-checkbox v-model="signEnable" size="mini">Special Chars</el-checkbox>
       </el-col>
       <el-col :span="4">&nbsp;</el-col>
       <el-col :span="4">
-        <el-select v-model="length" placeholder="请选择" size="mini" style="width:100%">
+        <el-select v-model="length" placeholder="Please Select" size="mini" style="width:100%">
           <el-option
             v-for="item in options"
             :key="item.value"
@@ -30,10 +30,10 @@
         <el-input v-model="password" size="mini" :readonly="true"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" @click="doCalc()">换一个</el-button>
+        <el-button size="mini" style="width:100%;" @click="doCalc()">Refresh</el-button>
       </el-col>
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">复制</el-button>
+        <el-button size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">Copy</el-button>
       </el-col>
     </el-row>
   </div>
@@ -45,13 +45,13 @@
       return {
         options: [{
           value: 8,
-          label: '8位'
+          label: '8'
         }, {
           value: 16,
-          label: '16位'
+          label: '16'
         }, {
           value: 32,
-          label: '32位'
+          label: '32'
         }],
         length: 16,
         upperCharEnable: true,
@@ -107,7 +107,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: '复制成功',
+          message: 'Copy Success',
           type: 'success',
           showClose: true,
         })

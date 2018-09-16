@@ -4,30 +4,31 @@
     <div v-if="page=='list'">
       <div class="page-header">
         <div class="more">
-          <el-button type="text" size="mini" icon="el-icon-plus" @click="doAdd()">增加规则</el-button>
+          <el-button type="text" size="mini" icon="el-icon-plus" @click="doAdd()">Add</el-button>
         </div>
-        规则列表
+        Page Changer Rule List
       </div>
       <el-table
         :data="list"
         stripe
+        empty-text="Empty"
         style="width: 100%">
-        <el-table-column label="网址正则">
+        <el-table-column label="RegExp.">
           <template slot-scope="scope">
             <span>{{ scope.row.rule }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="修改名称">
+        <el-table-column label="Change title">
           <template slot-scope="scope">
             <span>{{ scope.row.title }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="隐藏图标">
+        <el-table-column label="Hide fav">
           <template slot-scope="scope">
-            <span>{{ scope.row.hideIcon?'是':'否' }}</span>
+            <span>{{ scope.row.hideIcon?'Yes':'No' }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="操作" width="80">
+        <el-table-column label="Operation" width="80">
           <template slot-scope="scope">
             <el-button size="mini" icon="el-icon-delete" @click="doDelete(scope.$index)"></el-button>
           </template>
@@ -37,21 +38,21 @@
 
     <div v-if="page=='edit'">
       <div class="page-header">
-        增加规则
+        Add Page Changer Rule
       </div>
       <el-form label-width="80px">
-        <el-form-item label="网址正则">
+        <el-form-item label="RegExp.">
           <el-input v-model="edit.rule" size="mini" placeholder="www.example.com"></el-input>
         </el-form-item>
-        <el-form-item label="修改名称">
+        <el-form-item label="Change title">
           <el-input v-model="edit.title" size="mini"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-checkbox v-model="edit.hideIcon">隐藏图标</el-checkbox>
+          <el-checkbox v-model="edit.hideIcon">Hide fav</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="mini" @click="doSave()">保存</el-button>
-          <el-button size="mini" @click="page='list'">返回</el-button>
+          <el-button type="primary" size="mini" @click="doSave()">Save</el-button>
+          <el-button size="mini" @click="page='list'">Back</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -86,7 +87,7 @@
         var me = this
         if (Validate.isEmpty(this.edit.rule)) {
           this.$message({
-            message: '网址正则为空',
+            message: 'RegExp. is empty',
             type: 'error',
           })
           return;
@@ -94,7 +95,7 @@
         this.list.push(Object.assign({}, this.edit));
         Storage.set('PageChanger_List', this.list, function () {
           me.$message({
-            message: '保存成功',
+            message: 'Save Success',
             type: 'success',
           })
           me.page = 'list'

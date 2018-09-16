@@ -3,66 +3,66 @@
 
     <el-tabs type="border-card">
       <el-tab-pane>
-        <span slot="label">加密</span>
+        <span slot="label">Password</span>
         <el-collapse accordion>
           <el-collapse-item>
-            <template slot="title">密码生成器</template>
+            <template slot="title">Password Generator</template>
             <PasswordGenerator/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">编码解码</span>
+        <span slot="label">Encode/Decode</span>
         <el-collapse accordion>
           <el-collapse-item>
-            <template slot="title">MD5加密</template>
+            <template slot="title">MD5 Encode</template>
             <Md5/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">Base64编码</template>
+            <template slot="title">Base64 Encode</template>
             <Base64Encode/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">Base64解码</template>
+            <template slot="title">Base64 Decode</template>
             <Base64Decode/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">URL编码</template>
+            <template slot="title">URL Encode</template>
             <UrlEncode/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">URL解码</template>
+            <template slot="title">URL Decode</template>
             <UrlDecode/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">时间日期</span>
+        <span slot="label">Datetime</span>
         <el-collapse accordion>
           <el-collapse-item>
-            <template slot="title">时间戳转换</template>
+            <template slot="title">Timestamp Convert</template>
             <Timestamp/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">二维码</span>
+        <span slot="label">Qrcode</span>
         <el-collapse accordion>
           <el-collapse-item>
-            <template slot="title">页面二维码</template>
+            <template slot="title">Qrcode of current page</template>
             <QrcodePage/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">生成二维码</template>
+            <template slot="title">Qrcode Generator</template>
             <QrcodeGenerator/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">代码美化</span>
+        <span slot="label">CodeFormat</span>
         <el-collapse accordion>
           <el-collapse-item>
-            <template slot="title">JSON格式化</template>
+            <template slot="title">JSON Formatter</template>
             <JsonFormatter/>
           </el-collapse-item>
           <!--<el-collapse-item>-->
@@ -72,14 +72,8 @@
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">页面修改器</span>
+        <span slot="label">PageChanger</span>
         <PageChanger/>
-      </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">关于</span>
-        <div>
-          这个工具包是为开发者准备的常用工具集，如果您有更好的意见，欢迎提交给我们。
-        </div>
       </el-tab-pane>
     </el-tabs>
 
@@ -156,6 +150,14 @@
 
   .el-collapse-item__content {
     padding-bottom: 10px;
+  }
+
+  .el-tabs__item{
+    padding:0 10px;
+  }
+
+  .el-tabs--bottom .el-tabs--left .el-tabs__item:nth-child(2), .el-tabs--bottom .el-tabs--right .el-tabs__item:nth-child(2), .el-tabs--bottom.el-tabs--border-card .el-tabs__item:nth-child(2), .el-tabs--bottom.el-tabs--card .el-tabs__item:nth-child(2), .el-tabs--top .el-tabs--left .el-tabs__item:nth-child(2), .el-tabs--top .el-tabs--right .el-tabs__item:nth-child(2), .el-tabs--top.el-tabs--border-card .el-tabs__item:nth-child(2), .el-tabs--top.el-tabs--card .el-tabs__item:nth-child(2){
+    padding-left:10px;
   }
 
   .el-form-item {

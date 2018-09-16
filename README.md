@@ -1,8 +1,8 @@
 # Smart Developer
 
-> 一个给开发人员使用的Chrome插件
+> A Chrome Extension for Developers
 
-## 编译步骤
+## Build Steps
 
 ``` bash
 # install dependencies

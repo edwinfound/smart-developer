@@ -2,7 +2,7 @@
   "name": "Smart Developer",
   "manifest_version": 2,
   "version": "1.0.0",
-  "description": "帮助你更好的开发",
+  "description": "Help you develop well",
   "browser_action": {
     "default_icon": "icon.png",
     "default_title": "SmartDeveloper",
