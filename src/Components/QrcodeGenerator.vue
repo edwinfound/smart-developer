@@ -13,7 +13,7 @@
     </el-row>
     <el-row :gutter="10" style="margin-top:10px;">
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" @click="doGenerate()">Generate</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" @click="doGenerate()">Generate</el-button>
       </el-col>
     </el-row>
     <el-row :gutter="10" v-if="!!qrcode">

@@ -30,7 +30,7 @@
         </el-table-column>
         <el-table-column label="Operation" width="80">
           <template slot-scope="scope">
-            <el-button size="mini" icon="el-icon-delete" @click="doDelete(scope.$index)"></el-button>
+            <el-button type="primary" plain size="mini" icon="el-icon-delete" @click="doDelete(scope.$index)"></el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -51,8 +51,8 @@
           <el-checkbox v-model="edit.hideIcon">Hide fav</el-checkbox>
         </el-form-item>
         <el-form-item>
-          <el-button type="primary" size="mini" @click="doSave()">Save</el-button>
-          <el-button size="mini" @click="page='list'">Back</el-button>
+          <el-button plain type="primary" size="mini" @click="doSave()">Save</el-button>
+          <el-button plain size="mini" @click="page='list'">Back</el-button>
         </el-form-item>
       </el-form>
     </div>

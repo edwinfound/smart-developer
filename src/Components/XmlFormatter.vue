@@ -30,7 +30,7 @@
             v-model="contentResult">
           </el-input>
           <div>
-            <el-button size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+            <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
           </div>
         </div>
       </el-col>

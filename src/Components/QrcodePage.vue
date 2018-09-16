@@ -15,7 +15,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" v-clipboard:copy="qrcode" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="qrcode" v-clipboard:success="onPasswordCopy">Copy</el-button>
       </el-col>
     </el-row>
   </div>

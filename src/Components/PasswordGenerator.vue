@@ -30,10 +30,10 @@
         <el-input v-model="password" size="mini" :readonly="true"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" @click="doCalc()">Refresh</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalc()">Refresh</el-button>
       </el-col>
       <el-col :span="4">
-        <el-button size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">Copy</el-button>
       </el-col>
     </el-row>
   </div>

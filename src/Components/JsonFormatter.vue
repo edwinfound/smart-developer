@@ -33,7 +33,7 @@
           </el-input>
           <el-row :gutter="10" style="margin-top:10px;">
             <el-col :span="4">
-              <el-button size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+              <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
             </el-col>
           </el-row>
         </div>
