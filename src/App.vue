@@ -4,7 +4,7 @@
     <el-tabs type="border-card">
       <el-tab-pane>
         <span slot="label">Password</span>
-        <el-collapse accordion>
+        <el-collapse accordion class="main-list">
           <el-collapse-item>
             <template slot="title">Password Generator</template>
             <PasswordGenerator/>
@@ -72,8 +72,21 @@
         </el-collapse>
       </el-tab-pane>
       <el-tab-pane>
-        <span slot="label">PageChanger</span>
-        <PageChanger/>
+        <span slot="label">Util</span>
+        <el-collapse accordion>
+          <el-collapse-item>
+            <template slot="title">Page Changer</template>
+            <PageChanger/>
+          </el-collapse-item>
+          <el-collapse-item>
+            <template slot="title">Url Blocker</template>
+            <UrlBlocker/>
+          </el-collapse-item>
+          <el-collapse-item>
+            <template slot="title">Requester</template>
+            <Requester/>
+          </el-collapse-item>
+        </el-collapse>
       </el-tab-pane>
     </el-tabs>
 
@@ -92,6 +105,8 @@
   import QrcodeGenerator from './Components/QrcodeGenerator'
   import PageChanger from './Components/PageChanger'
   import JsonFormatter from './Components/JsonFormatter'
+  import UrlBlocker from './Components/UrlBlocker'
+  import Requester from './Components/Requester'
   // import XmlFormatter from './Components/XmlFormatter'
 
   export default {
@@ -111,7 +126,9 @@
       QrcodeGenerator,
       PageChanger,
       // XmlFormatter,
-      JsonFormatter
+      JsonFormatter,
+      UrlBlocker,
+      Requester
     }
   }
 </script>
@@ -128,9 +145,33 @@
     color:#666;
   }
 
+  .main-list{
+    .el-collapse-item__header{
+      /*color:#409eff;*/
+      /*background: #ecf5ff;*/
+      /*border-color: #b3d8ff;*/
+    }
+  }
+
   #app {
     width: 600px;
     margin: 0 auto;
+  }
+
+  .el-tabs__content{
+    height:500px;
+    overflow:auto;
+  }
+
+  .module-link{
+    color:#666;
+    text-align:center;
+    display:block;
+    height:100px;
+    line-height:100px;
+    text-decoration: none;
+    background:#EEE;
+    border-radius:3px;
   }
 
   .el-tabs__item, .el-collapse-item__header, .el-checkbox__label,
@@ -138,6 +179,20 @@
   .el-table th>.cell,.el-table td>.cell,.el-table__empty-text,.el-radio__label
   {
     font-size: 12px;
+  }
+
+  .el-collapse{
+    border:none;
+  }
+  .el-collapse-item__header{
+    background: #F8F8F8;
+    padding:0 10px;
+    border-radius:3px;
+    border:1px solid #EEE;
+  }
+  .el-collapse-item__content{
+    padding:10px;
+    border:1px solid #EEE;
   }
 
   .el-table td>.cell .el-button{
@@ -169,5 +224,11 @@
     .more{
       float:right;
     }
+  }
+  [data-text-type=danger]{
+    color:#F56C6C;
+  }
+  [data-text-type=success]{
+    color:#67C23A;
   }
 </style>

@@ -13,7 +13,10 @@
     "declarativeContent",
     "activeTab",
     "contextMenus",
-    "clipboardWrite"
+    "clipboardWrite",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
   ],
   "icons": {
     "16": "icon-16.png",
@@ -26,7 +29,8 @@
         "*://*/*"
       ],
       "js": [
-        "mod/page-changer/load.js"
+        "mod/page-changer/load.js",
+        "mod/request/load.js"
       ],
       "run_at": "document_end"
     }
@@ -35,7 +39,7 @@
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }

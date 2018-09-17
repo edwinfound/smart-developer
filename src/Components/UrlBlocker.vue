@@ -13,19 +13,9 @@
         stripe
         empty-text="Empty"
         style="width: 100%">
-        <el-table-column label="Url RegExp.">
+        <el-table-column label="RegExp.">
           <template slot-scope="scope">
             <span>{{ scope.row.rule }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="Change title">
-          <template slot-scope="scope">
-            <span>{{ scope.row.title }}</span>
-          </template>
-        </el-table-column>
-        <el-table-column label="Hide fav">
-          <template slot-scope="scope">
-            <span>{{ scope.row.hideIcon?'Yes':'No' }}</span>
           </template>
         </el-table-column>
         <el-table-column label="Operation" width="80">
@@ -44,12 +34,6 @@
         <el-form-item label="Url RegExp.">
           <el-input v-model="edit.rule" size="mini" placeholder="www.example.com"></el-input>
         </el-form-item>
-        <el-form-item label="Change title">
-          <el-input v-model="edit.title" size="mini"></el-input>
-        </el-form-item>
-        <el-form-item>
-          <el-checkbox v-model="edit.hideIcon">Hide fav</el-checkbox>
-        </el-form-item>
         <el-form-item>
           <el-button plain type="primary" size="mini" @click="doSave()">Save</el-button>
           <el-button plain size="mini" @click="page='list'">Back</el-button>
@@ -65,8 +49,6 @@
   const Validate = require('../lib/validate')
   let empty = {
     rule: '',
-    title: '',
-    hideIcon: false
   }
   module.exports = {
     data() {
@@ -78,7 +60,7 @@
     },
     mounted() {
       var me = this
-      Storage.get('PageChanger_List', [], function (value) {
+      Storage.get('UrlBlocker_List', [], function (value) {
         me.list = value
       })
     },
@@ -93,7 +75,7 @@
           return;
         }
         this.list.push(Object.assign({}, this.edit));
-        Storage.set('PageChanger_List', this.list, function () {
+        Storage.set('UrlBlocker_List', this.list, function () {
           me.$message({
             message: 'Save Success',
             type: 'success',
@@ -107,7 +89,7 @@
       },
       doDelete(index) {
         this.list.splice(index,1)
-        Storage.set('PageChanger_List', this.list)
+        Storage.set('UrlBlocker_List', this.list)
       }
     }
   }
