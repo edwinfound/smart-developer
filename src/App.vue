@@ -83,7 +83,7 @@
             <UrlBlocker/>
           </el-collapse-item>
           <el-collapse-item>
-            <template slot="title">Requester</template>
+            <template slot="title">Page Requester</template>
             <Requester/>
           </el-collapse-item>
         </el-collapse>

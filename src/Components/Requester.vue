@@ -20,8 +20,11 @@
             <el-col :span="1">
               &nbsp;
             </el-col>
-            <el-col :span="13">
+            <el-col :span="11">
               <el-input v-model="request.headers[headerIndex].value" size="mini" placeholder="Value" :disabled="requestLoading"></el-input>
+            </el-col>
+            <el-col :span="2">
+              <el-button plain size="mini" @click="request.headers.splice(headerIndex,1)" :disabled="requestLoading"><i class="el-icon-delete"></i></el-button>
             </el-col>
           </el-row>
           <div>
@@ -38,8 +41,11 @@
             <el-col :span="1">
               &nbsp;
             </el-col>
-            <el-col :span="13">
+            <el-col :span="11">
               <el-input v-model="request.params[paramIndex].value" size="mini" placeholder="Value" :disabled="requestLoading"></el-input>
+            </el-col>
+            <el-col :span="2">
+              <el-button plain size="mini" @click="request.params.splice(paramIndex,1)" :disabled="requestLoading"><i class="el-icon-delete"></i></el-button>
             </el-col>
           </el-row>
           <div>
@@ -51,7 +57,7 @@
         </el-form-item>
         <el-form-item>
           <el-button plain type="primary" size="mini" @click="doSend()" :loading="requestLoading">Send</el-button>
-          <el-button plain size="mini" @click="doClear()" :disabled="requestLoading">Clear History</el-button>
+          <el-button plain size="mini" @click="doClear()" :disabled="requestLoading" v-if="history.length>0">Clear History</el-button>
         </el-form-item>
       </el-form>
     </div>
