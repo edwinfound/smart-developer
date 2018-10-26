@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-
     <el-tabs type="border-card" v-model="tab">
       <el-tab-pane name="0">
         <span slot="label">密码</span>
@@ -114,9 +113,10 @@
     name: 'app',
     data() {
       return {
+        defaultValue: '',
         tab: 0,
         tabItem: 0,
-        tabItemPool:[0,0,0,0,0,0,],
+        tabItemPool:['','','','','',''],
       }
     },
     components: {
@@ -140,9 +140,11 @@
         if(!value){
           return
         }
+        this.defaultValue = value
         const pcs = value.split('-')
         this.tab = pcs[0]
-        this.tabItemPool[this.tab] = value
+        this.tabItemPool[parseInt(this.tab)] = value
+        this.tabItemPool = JSON.parse(JSON.stringify(this.tabItemPool))
       })
     },
     methods: {
