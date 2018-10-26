@@ -6,7 +6,7 @@
           type="textarea"
           :rows="4"
           size="mini"
-          placeholder="Please input json string"
+          placeholder="输入JSON字符串"
           v-model="content">
         </el-input>
       </el-col>
@@ -18,8 +18,8 @@
     </el-row>
     <el-row :gutter="10" style="margin-top:10px;">
       <el-col :span="24">
-        <el-radio v-model="contentResultType" label="object">Preview</el-radio>
-        <el-radio v-model="contentResultType" label="raw">Raw</el-radio>
+        <el-radio v-model="contentResultType" label="object">预览</el-radio>
+        <el-radio v-model="contentResultType" label="raw">原始</el-radio>
         <div v-show="contentResultType=='object'" style="border:1px solid #EEE;border-radius:3px;padding:10px;">
           <div id="JsonFormatter_Result"></div>
         </div>
@@ -33,7 +33,7 @@
           </el-input>
           <el-row :gutter="10" style="margin-top:10px;">
             <el-col :span="4">
-              <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+              <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">复制</el-button>
             </el-col>
           </el-row>
         </div>
@@ -88,7 +88,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: 'Copy Success',
+          message: '复制成功',
           type: 'success',
           showClose: true,
         })

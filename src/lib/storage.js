@@ -1,6 +1,7 @@
 module.exports = {
   set: function (key, value, cb) {
     if (!!!chrome.storage) {
+      window.localStorage.setItem(key, value)
       cb && cb();
       return;
     }
@@ -12,7 +13,11 @@ module.exports = {
   },
   get: function (key, defaultValue, cb) {
     if (!!!chrome.storage) {
-      cb && cb(defaultValue);
+      let value = window.localStorage.getItem(key)
+      if (!value) {
+        value = defaultValue
+      }
+      cb && cb(value);
       return;
     }
     chrome.storage.sync.get([key], function (result) {

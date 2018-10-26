@@ -9,7 +9,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalcTimestamp()">Convert</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalcTimestamp()">转换</el-button>
       </el-col>
       <el-col :span="8">
         <el-input
@@ -19,7 +19,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="timestampResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="timestampResult" v-clipboard:success="onPasswordCopy">复制</el-button>
       </el-col>
     </el-row>
     <el-row :gutter="10" style="margin-top:10px;">
@@ -31,7 +31,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalcTimestamp()">Convert</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalcTimestamp()">转换</el-button>
       </el-col>
       <el-col :span="8">
         <el-input
@@ -41,7 +41,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="datetimeResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="datetimeResult" v-clipboard:success="onPasswordCopy">复制</el-button>
       </el-col>
     </el-row>
   </div>
@@ -82,7 +82,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: 'Copy Success',
+          message: '复制成功',
           type: 'success',
           showClose: true,
         })

@@ -3,7 +3,7 @@
 
     <div>
       <el-form label-width="70px">
-        <el-form-item label="Url：">
+        <el-form-item label="URL：">
           <el-input placeholder="输入请求路径" v-model="request.url" size="mini" :disabled="requestLoading">
             <template slot="prepend">{{currentPageUrl}}</template>
           </el-input>
@@ -29,11 +29,11 @@
           </el-row>
           <div>
             <el-button plain size="mini" @click="request.headers.push({name:'',value:''})" :disabled="requestLoading"><i class="el-icon-plus"></i>
-              Add
+              增加
             </el-button>
           </div>
         </el-form-item>
-        <el-form-item label="Params：">
+        <el-form-item label="Param：">
           <el-row :gutter="0" v-for="(param,paramIndex) in request.params">
             <el-col :span="10">
               <el-input v-model="request.params[paramIndex].name" size="mini" placeholder="Name" :disabled="requestLoading"></el-input>
@@ -51,13 +51,13 @@
           <div>
             <el-button plain size="mini" @click="request.params.push({name:'',value:''})" :disabled="requestLoading">
               <i class="el-icon-plus"></i>
-              Add
+              增加
             </el-button>
           </div>
         </el-form-item>
         <el-form-item>
-          <el-button plain type="primary" size="mini" @click="doSend()" :loading="requestLoading">Send</el-button>
-          <el-button plain size="mini" @click="doClear()" :disabled="requestLoading" v-if="history.length>0">Clear History</el-button>
+          <el-button plain type="primary" size="mini" @click="doSend()" :loading="requestLoading">发送</el-button>
+          <el-button plain size="mini" @click="doClear()" :disabled="requestLoading" v-if="history.length>0">清除历史</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -73,7 +73,7 @@
         <div>
           <table class="request-item-table">
             <tr>
-              <td width="70">Request:</td>
+              <td width="70">请求:</td>
               <td>
                 <table class="requester-info" v-if="!!historyItem.request">
                   <tr>
@@ -104,7 +104,7 @@
               </td>
             </tr>
             <tr>
-              <td>Response:</td>
+              <td>返回:</td>
               <td>
                 <table class="requester-info" v-if="!!historyItem.response">
                   <tr v-if="historyItem.response.headers.length>0" v-for="(header,headerIndex) in historyItem.response.headers">
@@ -172,7 +172,6 @@
       request: {
         handler(newName, oldName) {
           Storage.localSet('Requester_RequestSave', this.request, function (value) {})
-          console.log('save')
         },
         deep: true
       }

@@ -11,7 +11,7 @@
         <el-checkbox v-model="numberEnable">0-9</el-checkbox>
       </el-col>
       <el-col :span="4">
-        <el-checkbox v-model="signEnable" size="mini">Special Chars</el-checkbox>
+        <el-checkbox v-model="signEnable" size="mini">特殊字符</el-checkbox>
       </el-col>
       <el-col :span="4">&nbsp;</el-col>
       <el-col :span="4">
@@ -30,10 +30,10 @@
         <el-input v-model="password" size="mini" :readonly="true"></el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalc()">Refresh</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" @click="doCalc()">刷新</el-button>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="password" v-clipboard:success="onPasswordCopy">复制</el-button>
       </el-col>
     </el-row>
   </div>
@@ -107,7 +107,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: 'Copy Success',
+          message: '复制成功',
           type: 'success',
           showClose: true,
         })

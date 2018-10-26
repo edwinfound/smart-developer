@@ -15,7 +15,7 @@
         </el-input>
       </el-col>
       <el-col :span="4">
-        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="qrcode" v-clipboard:success="onPasswordCopy">Copy</el-button>
+        <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="qrcode" v-clipboard:success="onPasswordCopy">复制</el-button>
       </el-col>
     </el-row>
   </div>
@@ -41,7 +41,7 @@
     methods: {
       onPasswordCopy() {
         this.$message({
-          message: 'Copy Success',
+          message: '复制成功',
           type: 'success',
           showClose: true,
         })

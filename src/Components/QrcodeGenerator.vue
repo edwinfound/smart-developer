@@ -3,7 +3,7 @@
     <el-row :gutter="10">
       <el-col :span="24">
         <el-input
-          placeholder="Please input content"
+          placeholder="输入内容"
           type="textarea"
           size="mini"
           :rows="4"

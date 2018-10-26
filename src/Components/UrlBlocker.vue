@@ -4,21 +4,21 @@
     <div v-if="page=='list'">
       <div class="page-header">
         <div class="more">
-          <el-button type="text" size="mini" icon="el-icon-plus" @click="doAdd()">Add</el-button>
+          <el-button type="text" size="mini" icon="el-icon-plus" @click="doAdd()">增加</el-button>
         </div>
-        Rule List
+        规则列表
       </div>
       <el-table
         :data="list"
         stripe
-        empty-text="Empty"
+        empty-text="暂无数据"
         style="width: 100%">
-        <el-table-column label="RegExp.">
+        <el-table-column label="正则">
           <template slot-scope="scope">
             <span>{{ scope.row.rule }}</span>
           </template>
         </el-table-column>
-        <el-table-column label="Operation" width="80">
+        <el-table-column label="操作" width="80">
           <template slot-scope="scope">
             <el-button type="primary" plain size="mini" icon="el-icon-delete" @click="doDelete(scope.$index)"></el-button>
           </template>
@@ -28,15 +28,15 @@
 
     <div v-if="page=='edit'">
       <div class="page-header">
-        Add Rule
+        增加规则
       </div>
       <el-form label-width="80px">
-        <el-form-item label="Url RegExp.">
+        <el-form-item label="Url正则">
           <el-input v-model="edit.rule" size="mini" placeholder="www.example.com"></el-input>
         </el-form-item>
         <el-form-item>
-          <el-button plain type="primary" size="mini" @click="doSave()">Save</el-button>
-          <el-button plain size="mini" @click="page='list'">Back</el-button>
+          <el-button plain type="primary" size="mini" @click="doSave()">保存</el-button>
+          <el-button plain size="mini" @click="page='list'">返回</el-button>
         </el-form-item>
       </el-form>
     </div>

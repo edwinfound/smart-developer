@@ -1,68 +1,68 @@
 <template>
   <div id="app">
 
-    <el-tabs type="border-card">
-      <el-tab-pane>
-        <span slot="label">Password</span>
-        <el-collapse accordion class="main-list">
-          <el-collapse-item>
-            <template slot="title">Password Generator</template>
+    <el-tabs type="border-card" v-model="tab">
+      <el-tab-pane name="0">
+        <span slot="label">密码</span>
+        <el-collapse accordion class="main-list" v-model="tabItemPool[0]" @change="handleChange">
+          <el-collapse-item name="0-0">
+            <template slot="title">密码生成器</template>
             <PasswordGenerator/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">Encode/Decode</span>
-        <el-collapse accordion>
-          <el-collapse-item>
-            <template slot="title">MD5 Encode</template>
+      <el-tab-pane name="1">
+        <span slot="label">编码解码</span>
+        <el-collapse accordion v-model="tabItemPool[1]" @change="handleChange">
+          <el-collapse-item name="1-0">
+            <template slot="title">MD5编码</template>
             <Md5/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">Base64 Encode</template>
+          <el-collapse-item name="1-1">
+            <template slot="title">Base64编码</template>
             <Base64Encode/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">Base64 Decode</template>
+          <el-collapse-item name="1-2">
+            <template slot="title">Base64解码</template>
             <Base64Decode/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">URL Encode</template>
+          <el-collapse-item name="1-3">
+            <template slot="title">URL编码</template>
             <UrlEncode/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">URL Decode</template>
+          <el-collapse-item name="1-4">
+            <template slot="title">URL解码</template>
             <UrlDecode/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">Datetime</span>
-        <el-collapse accordion>
-          <el-collapse-item>
-            <template slot="title">Timestamp Convert</template>
+      <el-tab-pane name="2">
+        <span slot="label">日期时间</span>
+        <el-collapse accordion v-model="tabItemPool[2]" @change="handleChange">
+          <el-collapse-item name="2-0">
+            <template slot="title">时间戳/日期时间 转换</template>
             <Timestamp/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">Qrcode</span>
-        <el-collapse accordion>
-          <el-collapse-item>
-            <template slot="title">Qrcode of current page</template>
+      <el-tab-pane name="3">
+        <span slot="label">二维码</span>
+        <el-collapse accordion v-model="tabItemPool[3]" @change="handleChange">
+          <el-collapse-item name="3-0">
+            <template slot="title">当前页面二维码</template>
             <QrcodePage/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">Qrcode Generator</template>
+          <el-collapse-item name="3-1">
+            <template slot="title">二维码生成器</template>
             <QrcodeGenerator/>
           </el-collapse-item>
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">CodeFormat</span>
-        <el-collapse accordion>
-          <el-collapse-item>
-            <template slot="title">JSON Formatter</template>
+      <el-tab-pane name="4">
+        <span slot="label">代码美化</span>
+        <el-collapse accordion v-model="tabItemPool[4]" @change="handleChange">
+          <el-collapse-item name="4-0">
+            <template slot="title">JSON美化</template>
             <JsonFormatter/>
           </el-collapse-item>
           <!--<el-collapse-item>-->
@@ -71,19 +71,19 @@
           <!--</el-collapse-item>-->
         </el-collapse>
       </el-tab-pane>
-      <el-tab-pane>
-        <span slot="label">Util</span>
-        <el-collapse accordion>
-          <el-collapse-item>
-            <template slot="title">Page Changer</template>
+      <el-tab-pane name="5">
+        <span slot="label">工具</span>
+        <el-collapse accordion v-model="tabItemPool[5]" @change="handleChange">
+          <el-collapse-item name="5-0">
+            <template slot="title">页面修改器</template>
             <PageChanger/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">Url Blocker</template>
+          <el-collapse-item name="5-1">
+            <template slot="title">URL拦截</template>
             <UrlBlocker/>
           </el-collapse-item>
-          <el-collapse-item>
-            <template slot="title">Page Requester</template>
+          <el-collapse-item name="5-2">
+            <template slot="title">页面发送请求</template>
             <Requester/>
           </el-collapse-item>
         </el-collapse>
@@ -94,6 +94,7 @@
 </template>
 
 <script>
+  import Storage from './lib/storage'
   import PasswordGenerator from './Components/PasswordGenerator'
   import Base64Encode from './Components/Base64Encode'
   import Base64Decode from './Components/Base64Decode'
@@ -112,7 +113,11 @@
   export default {
     name: 'app',
     data() {
-      return {}
+      return {
+        tab: 0,
+        tabItem: 0,
+        tabItemPool:[0,0,0,0,0,0,],
+      }
     },
     components: {
       PasswordGenerator,
@@ -129,6 +134,24 @@
       JsonFormatter,
       UrlBlocker,
       Requester
+    },
+    mounted(){
+      Storage.get('SmartDeveloperDefault','',value => {
+        if(!value){
+          return
+        }
+        const pcs = value.split('-')
+        this.tab = pcs[0]
+        this.tabItemPool[this.tab] = value
+      })
+    },
+    methods: {
+      handleChange(val) {
+        if(!val){
+          return
+        }
+        Storage.set('SmartDeveloperDefault',val)
+      }
     }
   }
 </script>

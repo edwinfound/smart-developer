@@ -28,7 +28,7 @@
   });
   chrome.contextMenus.create({
     id: "ContextCopyImageAsBase64",
-    title: "Copy Image as Base64",
+    title: "复制图片为Base64",
     contexts: ["image"]
   });
 })();

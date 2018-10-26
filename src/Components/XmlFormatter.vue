@@ -30,7 +30,7 @@
             v-model="contentResult">
           </el-input>
           <div>
-            <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">Copy</el-button>
+            <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">复制</el-button>
           </div>
         </div>
       </el-col>
@@ -89,7 +89,7 @@
       },
       onPasswordCopy() {
         this.$message({
-          message: 'Copy Success',
+          message: '复制成功',
           type: 'success',
           showClose: true,
         })
