@@ -3,7 +3,7 @@
     <el-row :gutter="10">
       <el-col :span="8">
         <el-input
-          placeholder="Timestamp"
+          placeholder="时间戳：秒/毫秒"
           size="mini"
           v-model="timestamp">
         </el-input>
@@ -25,7 +25,7 @@
     <el-row :gutter="10" style="margin-top:10px;">
       <el-col :span="8">
         <el-input
-          placeholder="Datetime"
+          placeholder="日期"
           size="mini"
           v-model="datetime">
         </el-input>
@@ -75,7 +75,11 @@
     },
     methods: {
       doCalcTimestamp() {
-        this.timestampResult = datetimeFormat(this.timestamp*1000)
+        if(this.timestamp>0xFFFFFFFF){
+          this.timestampResult = datetimeFormat(this.timestamp)
+        }else{
+          this.timestampResult = datetimeFormat(this.timestamp*1000)
+        }
       },
       doCalcDatetime() {
         this.datetimeResult = parseInt(datetimeParse(this.datetime).getTime()/1000)
