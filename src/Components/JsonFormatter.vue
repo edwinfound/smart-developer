@@ -33,7 +33,9 @@
           </el-input>
           <el-row :gutter="10" style="margin-top:10px;">
             <el-col :span="4">
-              <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult" v-clipboard:success="onPasswordCopy">复制</el-button>
+              <el-button type="primary" plain size="mini" style="width:100%;" v-clipboard:copy="contentResult"
+                         v-clipboard:success="onPasswordCopy">复制
+              </el-button>
             </el-col>
           </el-row>
         </div>
@@ -43,14 +45,15 @@
 </template>
 
 <script>
+  const Storage = require('../lib/storage')
   var JSONFormatter = require('json-formatter-js').default
   var $ = require('jquery')
   module.exports = {
     data() {
       return {
         content: '',
-        contentResult:'',
-        contentResultType:'object',
+        contentResult: '',
+        contentResultType: 'object',
         error: '',
       }
     },
@@ -61,6 +64,7 @@
     },
     methods: {
       doCalc() {
+        Storage.localSet('JsonFormatter_Data', this.content)
         this.error = ''
         this.contentResult = ''
         $('#JsonFormatter_Result').html('')
@@ -84,7 +88,7 @@
         const formatter = new JSONFormatter(json)
         var render = formatter.render()
         $('#JsonFormatter_Result').html(render)
-        this.contentResult = JSON.stringify(json,null,4)
+        this.contentResult = JSON.stringify(json, null, 4)
       },
       onPasswordCopy() {
         this.$message({
@@ -93,6 +97,12 @@
           showClose: true,
         })
       }
+    },
+    mounted() {
+      var me = this
+      Storage.localGet('JsonFormatter_Data', '',function (value) {
+        me.content = value
+      })
     }
   }
 </script>

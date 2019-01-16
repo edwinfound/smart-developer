@@ -31,6 +31,7 @@ module.exports = {
   },
   localSet: function (key, value, cb) {
     if (!!!chrome.storage) {
+      window.localStorage.setItem(key, value)
       cb && cb();
       return;
     }
@@ -42,7 +43,11 @@ module.exports = {
   },
   localGet: function (key, defaultValue, cb) {
     if (!!!chrome.storage) {
-      cb && cb(defaultValue);
+      var value = window.localStorage.getItem(key)
+      if (null === value) {
+        value = defaultValue
+      }
+      cb && cb(value);
       return;
     }
     chrome.storage.local.get([key], function (result) {
